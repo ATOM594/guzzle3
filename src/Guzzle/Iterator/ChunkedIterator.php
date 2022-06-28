@@ -29,7 +29,7 @@ class ChunkedIterator extends \IteratorIterator
         $this->chunkSize = $chunkSize;
     }
 
-    public function rewind()
+    public function rewind(): void
     {
         parent::rewind();
         $this->next();
