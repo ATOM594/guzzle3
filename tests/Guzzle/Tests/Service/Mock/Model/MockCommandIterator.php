@@ -24,7 +24,7 @@ class MockCommandIterator extends ResourceIterator
         return $data['resources'];
     }
 
-    public function next()
+    public function next(): void
     {
         $this->calledNext++;
         parent::next();
