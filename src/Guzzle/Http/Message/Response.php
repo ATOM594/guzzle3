@@ -969,4 +969,18 @@ class Response extends AbstractMessage implements \Serializable
         Version::warn(__METHOD__ . ' is deprecated');
         return null;
     }
+
+    public function __serialize(): array
+    {
+        return get_object_vars($this);
+    }
+
+    public function __unserialize(array $data): void
+    {
+        foreach ($data as $key => $value) {
+            if (property_exists($this, $key)) {
+                $this->$key = $value;
+            }
+        }
+    }
 }
